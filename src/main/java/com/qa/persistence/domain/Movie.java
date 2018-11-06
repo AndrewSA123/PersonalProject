@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -15,9 +17,10 @@ public class Movie {
 	private Long mid;
 	@Column(length = 100)
 	private String title;
-	private long fk_did;
-	@Column(length = 100)
-	private String genre;
+	@ManyToOne
+	private long did;
+	@ManyToOne
+	private Long gid;
 	@Column(length = 100)
 	private String mainActor;
 
@@ -33,9 +36,9 @@ public class Movie {
 		this.mainActor = actor;
 	}
 
-	public Movie(String title, String genre) {
+	public Movie(String title, Long genre) {
 		this.title = title;
-		this.genre = genre;
+		this.gid = genre;
 	}
 
 	public Long getMid() {
@@ -54,20 +57,20 @@ public class Movie {
 		return this.title;
 	}
 
-	public String getGenre() {
-		return this.genre;
+	public Long getGenre() {
+		return this.gid;
 	}
 
-	public void setGenre(String genre) {
-		this.genre = genre;
+	public void setGenre(Long genre) {
+		this.gid = genre;
 	}
 	
 	public void setFk_did(Long id) {
-		this.fk_did = id;
+		this.did = id;
 	}
 	
 	public Long getFk_did() {
-		return this.fk_did;
+		return this.did;
 	}
 
 }

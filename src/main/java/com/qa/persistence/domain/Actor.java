@@ -5,64 +5,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Director {
+public class Actor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long did;
+	private Long aid;
 	@Column(length = 100)
 	private String name;
+	@OneToMany
+	private long mid;
 	@Column(length = 100)
 	private String age;
-	@OneToMany
-	private Long mid;
 	
 	
-	public Director() {
-		
+	public Long getAid() {
+		return aid;
 	}
-	
-	public Director(String name, String age, Long mid) {
-		this.name = name;
-		this.age = age;
-		this.mid = mid;
+	public void setAid(Long aid) {
+		this.aid = aid;
 	}
-	
-	
-	public Long getDid() {
-		return did;
-	}
-
-	public void setDid(Long did) {
-		this.did = did;
-	}
-
-	public String getAge() {
-		return age;
-	}
-
-	public void setAge(String age) {
-		this.age = age;
-	}
-
-	public Long getMid() {
-		return mid;
-	}
-
-	public void setMid(Long mid) {
-		this.mid = mid;
-	}
-	
 	public String getName() {
-		return this.name;
+		return name;
 	}
-	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public long getMid() {
+		return mid;
+	}
+	public void setMid(long mid) {
+		this.mid = mid;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
 
 }
