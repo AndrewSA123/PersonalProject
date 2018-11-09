@@ -17,8 +17,16 @@ public class Genre {
 	@Column(length = 100)
 	private String name;
 	@OneToMany
-	private long mid;
+	private Long mid;
 	
+	public Genre() {
+		
+	}
+	
+	public Genre(String name, Long mid) {
+		this.name = name;
+		this.mid = mid;
+	}
 	
 	public Long getGid() {
 		return gid;

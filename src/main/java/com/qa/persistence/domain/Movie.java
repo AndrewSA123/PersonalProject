@@ -27,6 +27,13 @@ public class Movie {
 	public Movie() {
 
 	}
+	public Long getFK_Gid() {
+		return gid;
+	}
+
+	public void setFk_Gid(Long gid) {
+		this.gid = gid;
+	}
 	
 	public String getActor() {
 		return this.mainActor;
@@ -36,9 +43,11 @@ public class Movie {
 		this.mainActor = actor;
 	}
 
-	public Movie(String title, Long genre) {
+	public Movie(String title, String MainActor, Long did, Long gid) {
 		this.title = title;
-		this.gid = genre;
+		this.mainActor = MainActor;
+		this.did = did;
+		this.gid = gid;
 	}
 
 	public Long getMid() {

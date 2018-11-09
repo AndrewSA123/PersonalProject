@@ -17,10 +17,19 @@ public class Actor {
 	@Column(length = 100)
 	private String name;
 	@OneToMany
-	private long mid;
+	private Long mid;
 	@Column(length = 100)
 	private String age;
 	
+	public Actor() {
+		
+	}
+	
+	public Actor(String name, Long mid, String age) {
+		this.name = name;
+		this.mid = mid;
+		this.age = age;
+	}
 	
 	public Long getAid() {
 		return aid;
