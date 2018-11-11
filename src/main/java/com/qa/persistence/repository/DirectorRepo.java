@@ -30,7 +30,7 @@ public class DirectorRepo implements IDirectorRepo {
 	@Transactional(REQUIRED)
 	public String createDirector(String director) {
 		
-		Director m = util.getObjectForJSON(director, Director.class);
+		Director m = util.fromJSON(director, Director.class);
 		em.persist(m);
 		
 		return "{\"message\": \"Director Successfully Added\"}";
@@ -46,7 +46,7 @@ public class DirectorRepo implements IDirectorRepo {
 	public String getAllDirectors() {
 		Query q = em.createQuery("Select a FROM Directors a");
 		Collection<Director> directors = (Collection<Director>) q.getResultList();
-		return util.getJSONForObject(directors);
+		return util.toJSON(directors);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class DirectorRepo implements IDirectorRepo {
 	@Override
 	@Transactional(REQUIRED)
 	public String updateDirector(Long id, String director) {
-		Director newDirector = util.getObjectForJSON(director, Director.class);
+		Director newDirector = util.fromJSON(director, Director.class);
 		Director oldDirector = em.find(Director.class, id);
 		
 		oldDirector.setAge(newDirector.getAge());

@@ -30,7 +30,7 @@ public class GenreRepo implements IGenreRepo {
 	@Transactional(REQUIRED)
 	public String createGenre(String genre) {
 		
-		Genre m = util.getObjectForJSON(genre, Genre.class);
+		Genre m = util.fromJSON(genre, Genre.class);
 		em.persist(m);
 		
 		return "{\"message\": \"Genre Successfully Added\"}";
@@ -46,7 +46,7 @@ public class GenreRepo implements IGenreRepo {
 	public String getAllGenres() {
 		Query q = em.createQuery("Select a FROM Genres a");
 		Collection<Genre> genres = (Collection<Genre>) q.getResultList();
-		return util.getJSONForObject(genres);
+		return util.toJSON(genres);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class GenreRepo implements IGenreRepo {
 	@Override
 	@Transactional(REQUIRED)
 	public String updateGenre(Long id, String genre) {
-		Genre newGenre = util.getObjectForJSON(genre, Genre.class);
+		Genre newGenre = util.fromJSON(genre, Genre.class);
 		Genre oldGenre = em.find(Genre.class, id);
 		
 		oldGenre.setMid(newGenre.getMid());

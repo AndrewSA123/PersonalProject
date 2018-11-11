@@ -21,6 +21,12 @@ public class Director {
 	private Long mid;
 	
 	
+	@Override
+	public String toString() {
+		return "{\"ID\": " + "\"" + this.did + "\"" + "," + "\n\"Name\": " + "\"" + this.name
+				+ "\"" + "," + "\"" + "Age\":" + "\"" + this.age + "\"" + "}";
+	}
+	
 	public Director() {
 		
 	}

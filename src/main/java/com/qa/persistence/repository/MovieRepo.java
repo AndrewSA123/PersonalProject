@@ -30,7 +30,7 @@ public class MovieRepo implements IMovieRepo {
 	@Transactional(REQUIRED)
 	public String createMovie(String movie) {
 		
-		Movie m = util.getObjectForJSON(movie, Movie.class);
+		Movie m = util.fromJSON(movie, Movie.class);
 		em.persist(m);
 		
 		return "{\"message\": \"Movie Successfully Added\"}";
@@ -46,7 +46,7 @@ public class MovieRepo implements IMovieRepo {
 	public String getAllMovies() {
 		Query q = em.createQuery("Select a FROM Movies a");
 		Collection<Movie> movies = (Collection<Movie>) q.getResultList();
-		return util.getJSONForObject(movies);
+		return util.toJSON(movies);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class MovieRepo implements IMovieRepo {
 	@Override
 	@Transactional(REQUIRED)
 	public String updateMovie(Long id, String movie) {
-		Movie newMovie = util.getObjectForJSON(movie, Movie.class);
+		Movie newMovie = util.fromJSON(movie, Movie.class);
 		Movie oldMovie = em.find(Movie.class, id);
 		
 		oldMovie.setMid(newMovie.getMid());

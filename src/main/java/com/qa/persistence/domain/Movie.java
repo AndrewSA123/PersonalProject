@@ -23,6 +23,12 @@ public class Movie {
 	private Long gid;
 	@Column(length = 100)
 	private String mainActor;
+	
+	@Override
+	public String toString() {
+		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Title\": " + "\"" + this.title
+				+ "\"" + "," + "\"" + "Starring\":" + "\"" + this.mainActor + "\"" + "}";
+	}
 
 	public Movie() {
 

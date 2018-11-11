@@ -30,7 +30,7 @@ public class ActorRepo implements IActorRepo {
 	@Transactional(REQUIRED)
 	public String createActor(String actor) {
 		
-		Actor m = util.getObjectForJSON(actor, Actor.class);
+		Actor m = util.fromJSON(actor, Actor.class);
 		em.persist(m);
 		
 		return "{\"message\": \"Actor Successfully Added\"}";
@@ -46,7 +46,7 @@ public class ActorRepo implements IActorRepo {
 	public String getAllActors() {
 		Query q = em.createQuery("Select a FROM Directors a");
 		Collection<Actor> actors = (Collection<Actor>) q.getResultList();
-		return util.getJSONForObject(actors);
+		return util.toJSON(actors);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class ActorRepo implements IActorRepo {
 	@Override
 	@Transactional(REQUIRED)
 	public String updateActor(Long id, String actor) {
-		Actor newActor = util.getObjectForJSON(actor, Actor.class);
+		Actor newActor = util.fromJSON(actor, Actor.class);
 		Actor oldActor = em.find(Actor.class, id);
 		
 		oldActor.setAid(newActor.getAid());

@@ -21,6 +21,12 @@ public class Actor {
 	@Column(length = 100)
 	private String age;
 	
+	@Override
+	public String toString() {
+		return "{\"ID\": " + "\"" + this.aid + "\"" + "," + "\n\"Name\": " + "\"" + this.name
+				+ "\"" + "," + "\"" + "Age\":" + "\"" + this.age + "\"" + "}";
+	}
+	
 	public Actor() {
 		
 	}

@@ -19,6 +19,12 @@ public class Genre {
 	@OneToMany
 	private Long mid;
 	
+	@Override
+	public String toString() {
+		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Genre\": " + "\"" + this.name
+				+ "\"" + "}";
+	}
+	
 	public Genre() {
 		
 	}
