@@ -22,9 +22,6 @@ public class Actor {
 	private Long aid;
 	@Column(length = 100)
 	private String name;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "mid")
-	private Set<Movie> movies;
 	@Column(length = 100)
 	private String age;
 	
@@ -38,9 +35,8 @@ public class Actor {
 		
 	}
 	
-	public Actor(String name, Movie mid, String age) {
+	public Actor(String name, String age) {
 		this.name = name;
-		this.movies.add(mid);
 		this.age = age;
 	}
 	
@@ -55,12 +51,6 @@ public class Actor {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Set getMid() {
-		return this.movies;
-	}
-	public void setMid(Movie mid) {
-		this.movies.add(mid);
 	}
 	public String getAge() {
 		return age;

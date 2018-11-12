@@ -21,9 +21,9 @@ public class Movie {
 	private Long mid;
 	@Column(length = 100)
 	private String title;
-	@Column(length = 100)
+	@ManyToOne
 	@JoinColumn(name = "aid")
-	private Long aid;
+	private Actor aid;
 	@ManyToOne
 	@JoinColumn(name = "gid")
 	private Genre gid;
@@ -40,7 +40,7 @@ public class Movie {
 
 	}
 	
-	public Movie(String title, Long aid, Genre gid, Director did) {
+	public Movie(String title, Actor aid, Genre gid, Director did) {
 		this.title = title;
 		this.aid = aid;
 		this.gid = gid;
@@ -70,6 +70,9 @@ public class Movie {
 	
 	public String getGid() {
 		return this.gid.toString();
+	}
+	public String getAid() {
+		return this.aid.toString();
 	}
 
 
