@@ -44,7 +44,7 @@ public class MovieRepo implements IMovieRepo {
 
 	@Override
 	public String getAllMovies() {
-		Query q = em.createQuery("Select a FROM Movies a");
+		Query q = em.createQuery("Select a FROM Movie a");
 		Collection<Movie> movies = (Collection<Movie>) q.getResultList();
 		return util.toJSON(movies);
 	}

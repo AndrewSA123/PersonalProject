@@ -44,7 +44,7 @@ public class ActorRepo implements IActorRepo {
 
 	@Override
 	public String getAllActors() {
-		Query q = em.createQuery("Select a FROM Directors a");
+		Query q = em.createQuery("Select a FROM Actor a");
 		Collection<Actor> actors = (Collection<Actor>) q.getResultList();
 		return util.toJSON(actors);
 	}
@@ -65,7 +65,6 @@ public class ActorRepo implements IActorRepo {
 		Actor oldActor = em.find(Actor.class, id);
 		
 		oldActor.setAid(newActor.getAid());
-		oldActor.setMid(newActor.getMid());
 		oldActor.setAge(newActor.getAge());
 		oldActor.setName(newActor.getName());
 		

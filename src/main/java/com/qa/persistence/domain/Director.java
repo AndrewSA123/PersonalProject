@@ -17,7 +17,6 @@ public class Director {
 	private String name;
 	@Column(length = 100)
 	private String age;
-	@OneToMany
 	private Long mid;
 	
 	

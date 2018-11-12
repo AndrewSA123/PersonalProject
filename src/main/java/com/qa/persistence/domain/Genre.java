@@ -16,7 +16,6 @@ public class Genre {
 	private Long gid;
 	@Column(length = 100)
 	private String name;
-	@OneToMany
 	private Long mid;
 	
 	@Override

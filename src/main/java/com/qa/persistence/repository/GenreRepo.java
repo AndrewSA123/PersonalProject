@@ -44,7 +44,7 @@ public class GenreRepo implements IGenreRepo {
 
 	@Override
 	public String getAllGenres() {
-		Query q = em.createQuery("Select a FROM Genres a");
+		Query q = em.createQuery("Select a FROM Genre a");
 		Collection<Genre> genres = (Collection<Genre>) q.getResultList();
 		return util.toJSON(genres);
 	}

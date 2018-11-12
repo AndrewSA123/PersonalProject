@@ -44,7 +44,7 @@ public class DirectorRepo implements IDirectorRepo {
 
 	@Override
 	public String getAllDirectors() {
-		Query q = em.createQuery("Select a FROM Directors a");
+		Query q = em.createQuery("Select a FROM Director a");
 		Collection<Director> directors = (Collection<Director>) q.getResultList();
 		return util.toJSON(directors);
 	}

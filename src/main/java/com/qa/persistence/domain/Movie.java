@@ -1,10 +1,14 @@
 package com.qa.persistence.domain;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -17,9 +21,7 @@ public class Movie {
 	private Long mid;
 	@Column(length = 100)
 	private String title;
-	@ManyToOne
-	private long did;
-	@ManyToOne
+	private Long did;
 	private Long gid;
 	@Column(length = 100)
 	private String mainActor;

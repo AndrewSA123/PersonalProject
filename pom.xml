@@ -5,7 +5,7 @@
   <groupId>com.qa</groupId>
   <artifactId>movieAPI</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>movieAPI</name>
   <url>http://maven.apache.org</url>

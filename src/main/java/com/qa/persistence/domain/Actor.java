@@ -1,10 +1,15 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -16,8 +21,9 @@ public class Actor {
 	private Long aid;
 	@Column(length = 100)
 	private String name;
-	@OneToMany
-	private Long mid;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "mid")
+	private Set<Movie> movies;
 	@Column(length = 100)
 	private String age;
 	
@@ -31,9 +37,9 @@ public class Actor {
 		
 	}
 	
-	public Actor(String name, Long mid, String age) {
+	public Actor(String name, Movie mid, String age) {
 		this.name = name;
-		this.mid = mid;
+		this.movies.add(mid);
 		this.age = age;
 	}
 	
@@ -49,11 +55,11 @@ public class Actor {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getMid() {
-		return mid;
+	public Set getMid() {
+		return this.movies;
 	}
-	public void setMid(long mid) {
-		this.mid = mid;
+	public void setMid(Movie mid) {
+		this.movies.add(mid);
 	}
 	public String getAge() {
 		return age;
