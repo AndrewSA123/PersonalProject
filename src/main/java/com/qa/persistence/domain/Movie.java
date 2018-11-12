@@ -21,41 +21,31 @@ public class Movie {
 	private Long mid;
 	@Column(length = 100)
 	private String title;
-	private Long did;
-	private Long gid;
 	@Column(length = 100)
-	private String mainActor;
-	
+	@JoinColumn(name = "aid")
+	private Long aid;
+	@ManyToOne
+	@JoinColumn(name = "gid")
+	private Genre gid;
+	@ManyToOne
+	@JoinColumn(name = "did")
+	private Director did;
 	@Override
 	public String toString() {
 		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Title\": " + "\"" + this.title
-				+ "\"" + "," + "\"" + "Starring\":" + "\"" + this.mainActor + "\"" + "}";
+				+ "\"" + "," + "\"" + "}";
 	}
 
 	public Movie() {
 
 	}
-	public Long getFK_Gid() {
-		return gid;
-	}
-
-	public void setFk_Gid(Long gid) {
-		this.gid = gid;
-	}
 	
-	public String getActor() {
-		return this.mainActor;
-	}
-	
-	public void setMainActor(String actor) {
-		this.mainActor = actor;
-	}
-
-	public Movie(String title, String MainActor, Long did, Long gid) {
+	public Movie(String title, Long aid, Genre gid, Director did) {
 		this.title = title;
-		this.mainActor = MainActor;
-		this.did = did;
+		this.aid = aid;
 		this.gid = gid;
+		this.did = did;
+
 	}
 
 	public Long getMid() {
@@ -73,21 +63,14 @@ public class Movie {
 	public String getTitle() {
 		return this.title;
 	}
-
-	public Long getGenre() {
-		return this.gid;
-	}
-
-	public void setGenre(Long genre) {
-		this.gid = genre;
+	
+	public String getDid() {
+		return this.did.toString();
 	}
 	
-	public void setFk_did(Long id) {
-		this.did = id;
+	public String getGid() {
+		return this.gid.toString();
 	}
-	
-	public Long getFk_did() {
-		return this.did;
-	}
+
 
 }

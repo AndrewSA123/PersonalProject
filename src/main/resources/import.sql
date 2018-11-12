@@ -1,3 +1,4 @@
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('John', 'Doe', '1234');
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('Jane', 'Doe', '1235');
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('Jim', 'Taylor', '1236');
+INSERT INTO GENRE (name) VALUES ('Horror');
+INSERT INTO DIRECTOR (name, age) VALUES ('Gareth', '30');
+INSERT INTO ACTOR (name, age) VALUES ('Andrew', '22');
+INSERT INTO MOVIE (title, aid, gid, did) VALUES ('Memes', 1, 1, 1);

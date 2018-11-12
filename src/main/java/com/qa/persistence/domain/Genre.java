@@ -16,11 +16,10 @@ public class Genre {
 	private Long gid;
 	@Column(length = 100)
 	private String name;
-	private Long mid;
 	
 	@Override
 	public String toString() {
-		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Genre\": " + "\"" + this.name
+		return "{\"ID\": " + "\"" + this.gid + "\"" + "," + "\n\"Genre\": " + "\"" + this.name
 				+ "\"" + "}";
 	}
 	
@@ -28,9 +27,8 @@ public class Genre {
 		
 	}
 	
-	public Genre(String name, Long mid) {
+	public Genre(String name) {
 		this.name = name;
-		this.mid = mid;
 	}
 	
 	public Long getGid() {
@@ -44,12 +42,6 @@ public class Genre {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public long getMid() {
-		return mid;
-	}
-	public void setMid(long mid) {
-		this.mid = mid;
 	}
 	
 	

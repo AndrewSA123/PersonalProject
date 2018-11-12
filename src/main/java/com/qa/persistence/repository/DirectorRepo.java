@@ -65,7 +65,6 @@ public class DirectorRepo implements IDirectorRepo {
 		Director oldDirector = em.find(Director.class, id);
 		
 		oldDirector.setAge(newDirector.getAge());
-		oldDirector.setMid(newDirector.getMid());
 		oldDirector.setName(newDirector.getName());
 
 		return "{\"message\": \"Director sucessfully updated\"}";

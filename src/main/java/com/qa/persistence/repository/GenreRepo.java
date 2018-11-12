@@ -64,7 +64,6 @@ public class GenreRepo implements IGenreRepo {
 		Genre newGenre = util.fromJSON(genre, Genre.class);
 		Genre oldGenre = em.find(Genre.class, id);
 		
-		oldGenre.setMid(newGenre.getMid());
 		oldGenre.setName(newGenre.getName());
 		
 		

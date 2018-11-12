@@ -17,7 +17,7 @@ public class Director {
 	private String name;
 	@Column(length = 100)
 	private String age;
-	private Long mid;
+
 	
 	
 	@Override
@@ -30,10 +30,9 @@ public class Director {
 		
 	}
 	
-	public Director(String name, String age, Long mid) {
+	public Director(String name, String age) {
 		this.name = name;
 		this.age = age;
-		this.mid = mid;
 	}
 	
 	
@@ -53,13 +52,6 @@ public class Director {
 		this.age = age;
 	}
 
-	public Long getMid() {
-		return mid;
-	}
-
-	public void setMid(Long mid) {
-		this.mid = mid;
-	}
 	
 	public String getName() {
 		return this.name;

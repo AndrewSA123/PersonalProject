@@ -65,10 +65,7 @@ public class MovieRepo implements IMovieRepo {
 		Movie oldMovie = em.find(Movie.class, id);
 		
 		oldMovie.setMid(newMovie.getMid());
-		oldMovie.setMainActor(newMovie.getActor());
-		oldMovie.setGenre(newMovie.getGenre());
 		oldMovie.setTitle(newMovie.getTitle());
-		oldMovie.setFk_did(newMovie.getFk_did());
 		
 		
 		return "{\"message\": \"Movie sucessfully updated\"}";
