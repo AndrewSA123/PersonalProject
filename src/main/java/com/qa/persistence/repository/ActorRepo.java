@@ -53,7 +53,7 @@ public class ActorRepo implements IActorRepo {
 	@Transactional(REQUIRED)
 	public String DeleteActor(Long id) {
 		if(em.find(Actor.class, id) != null) {
-		em.remove(id);
+		em.remove(em.find(Actor.class, id));
 		}
 		return "{\"message\": \"Actor sucessfully deleted\"}";
 	}

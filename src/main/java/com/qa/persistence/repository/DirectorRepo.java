@@ -53,7 +53,7 @@ public class DirectorRepo implements IDirectorRepo {
 	@Transactional(REQUIRED)
 	public String deleteDirector(Long id) {
 		if(em.find(Director.class, id) != null) {
-		em.remove(id);
+		em.remove(em.find(Director.class, id));
 		}
 		return "{\"message\": \"Director sucessfully deleted\"}";
 	}
