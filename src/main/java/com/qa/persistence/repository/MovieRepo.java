@@ -54,8 +54,10 @@ public class MovieRepo implements IMovieRepo {
 	public String DeleteMovie(Long id) {
 		if(em.find(Movie.class, id) != null) {
 		em.remove(em.find(Movie.class, id));
-		}
 		return "{\"message\": \"Movie sucessfully deleted\"}";
+		}
+		return "{\"message\": \"Movie not found\"}";
+		
 	}
 
 	@Override

@@ -54,8 +54,9 @@ public class DirectorRepo implements IDirectorRepo {
 	public String deleteDirector(Long id) {
 		if(em.find(Director.class, id) != null) {
 		em.remove(em.find(Director.class, id));
-		}
 		return "{\"message\": \"Director sucessfully deleted\"}";
+		}
+		return "{\"message\": \"Director not found\"}";
 	}
 
 	@Override

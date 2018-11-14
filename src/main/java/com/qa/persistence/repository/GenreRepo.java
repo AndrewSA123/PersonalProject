@@ -54,8 +54,9 @@ public class GenreRepo implements IGenreRepo {
 	public String deleteGenre(Long id) {
 		if(em.find(Genre.class, id) != null) {
 		em.remove(em.find(Genre.class, id));
-		}
 		return "{\"message\": \"Genre sucessfully deleted\"}";
+		}
+		return "{\"message\": \"Genre not found\"}";
 	}
 
 	@Override

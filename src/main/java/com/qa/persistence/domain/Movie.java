@@ -30,6 +30,8 @@ public class Movie {
 	@ManyToOne
 	@JoinColumn(name = "did")
 	private Director did;
+	
+	
 	@Override
 	public String toString() {
 		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Title\": " + "\"" + this.title

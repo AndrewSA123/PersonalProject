@@ -54,8 +54,9 @@ public class ActorRepo implements IActorRepo {
 	public String DeleteActor(Long id) {
 		if(em.find(Actor.class, id) != null) {
 		em.remove(em.find(Actor.class, id));
-		}
 		return "{\"message\": \"Actor sucessfully deleted\"}";
+		}
+		return "{\"message\": \"Actor not found\"}";
 	}
 
 	@Override
