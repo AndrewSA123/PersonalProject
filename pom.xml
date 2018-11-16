@@ -26,6 +26,14 @@
     			<directory>C:\Users\Admin\External-Applications\wildfly-10.1.0.Final\wildfly-10.1.0.Final\standalone\deployments</directory>
     		</build>
     		</profile>
+    		
+    		
+    	<profile>
+    		<id>homedeploy</id>
+    		<build>
+    			<directory>F:\Core Programs\Wildfly\wildfly-14.0.1.Final\standalone\deployments</directory>
+    		</build>
+    		</profile>
     </profiles>
 
     <dependencyManagement>

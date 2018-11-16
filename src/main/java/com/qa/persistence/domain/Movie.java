@@ -32,6 +32,18 @@ public class Movie {
 	private Director did;
 	
 	
+	public void setAid(Actor aid) {
+		this.aid = aid;
+	}
+
+	public void setGid(Genre gid) {
+		this.gid = gid;
+	}
+
+	public void setDid(Director did) {
+		this.did = did;
+	}
+
 	@Override
 	public String toString() {
 		return "{\"ID\": " + "\"" + this.mid + "\"" + "," + "\n\"Title\": " + "\"" + this.title
@@ -69,12 +81,20 @@ public class Movie {
 	public String getDid() {
 		return this.did.toString();
 	}
-	
+	public Director getDid2() {
+		return this.did;
+	}
 	public String getGid() {
 		return this.gid.toString();
 	}
+	public Genre getGid2() {
+		return this.gid;
+	}
 	public String getAid() {
 		return this.aid.toString();
+	}
+	public Actor getAid2() {
+		return this.aid;
 	}
 
 

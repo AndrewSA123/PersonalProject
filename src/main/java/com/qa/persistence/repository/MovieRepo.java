@@ -2,6 +2,9 @@ package com.qa.persistence.repository;
 
 import javax.transaction.Transactional;
 
+import com.qa.persistence.domain.Actor;
+import com.qa.persistence.domain.Director;
+import com.qa.persistence.domain.Genre;
 import com.qa.persistence.domain.Movie;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
@@ -66,8 +69,11 @@ public class MovieRepo implements IMovieRepo {
 		Movie newMovie = util.fromJSON(movie, Movie.class);
 		Movie oldMovie = em.find(Movie.class, id);
 		
-		oldMovie.setMid(newMovie.getMid());
+		
 		oldMovie.setTitle(newMovie.getTitle());
+		oldMovie.setAid(newMovie.getAid2());
+		oldMovie.setGid(newMovie.getGid2());
+		oldMovie.setDid(newMovie.getDid2());
 		
 		
 		return "{\"message\": \"Movie sucessfully updated\"}";
