@@ -19,7 +19,7 @@ public class Genre {
 	
 	@Override
 	public String toString() {
-		return "{\"ID\": " + "\"" + this.gid + "\"" + "," + "\n\"Genre\": " + "\"" + this.name
+		return "{\"ID\": " + "\"" + this.gid + "\"" + "," + "\n\"Name\": " + "\"" + this.name
 				+ "\"" + "}";
 	}
 	
