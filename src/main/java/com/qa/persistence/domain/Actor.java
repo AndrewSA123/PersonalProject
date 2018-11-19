@@ -35,7 +35,8 @@ public class Actor {
 		
 	}
 	
-	public Actor(String name, String age) {
+	public Actor(Long aid, String name, String age) {
+		this.aid = aid;
 		this.name = name;
 		this.age = age;
 	}

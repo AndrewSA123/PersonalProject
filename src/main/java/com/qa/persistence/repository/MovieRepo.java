@@ -67,13 +67,14 @@ public class MovieRepo implements IMovieRepo {
 	@Transactional(REQUIRED)
 	public String updateMovie(Long id, String movie) {
 		Movie newMovie = util.fromJSON(movie, Movie.class);
-		Movie oldMovie = em.find(Movie.class, id);
+		Movie movieInDb = em.find(Movie.class, id);
 		
 		
-		oldMovie.setTitle(newMovie.getTitle());
-		oldMovie.setAid(newMovie.getAid2());
-		oldMovie.setGid(newMovie.getGid2());
-		oldMovie.setDid(newMovie.getDid2());
+		movieInDb.setTitle(newMovie.getTitle());
+		movieInDb.setAid(newMovie.getAid2());
+		movieInDb.setGid(newMovie.getGid2());
+		movieInDb.setDid(newMovie.getDid2());
+		
 		
 		
 		return "{\"message\": \"Movie sucessfully updated\"}";
