@@ -34,7 +34,7 @@ public class GenreEndPoint {
 	@Path("/deletegenre/{id}")
 	@DELETE
 	@Produces({"application/json"})
-	public String deletGenre(@PathParam("id") Long id) {
+	public String deleteGenre(@PathParam("id") Long id) {
 		return gs.deleteGenre(id);
 	}
 
